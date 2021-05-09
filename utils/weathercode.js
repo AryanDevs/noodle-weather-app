@@ -12,7 +12,7 @@ const weathercode=(address,callback)=>{
             callback('Location not found, Try another search',undefined);
         }
         else{
-            callback(undefined,response.body.current.weather_descriptions[0] +' .Currently it is '+response.body.current.temperature+' degrees out and  it feels like '+response.body.current.feelslike+' degrees');
+            callback(undefined,response.body.current.weather_descriptions[0] +' .Currently it is '+response.body.current.temperature+' degrees out and  it feels like '+response.body.current.feelslike+' degrees. The cloud cover is '+response.body.current.cloudcover+' The humidity is '+response.body.current.humidity+'percent. The UV index is '+response.body.current.uv_index+'. The wind direction is '+response.body.current.wind_dir);
         }
     })
 }
