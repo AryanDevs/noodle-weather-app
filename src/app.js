@@ -5,12 +5,14 @@ const express=require('express');
 const geocode=require('../utils/geocode');
 const weathercode=require('../utils/weathercode');
 const hbs=require('hbs');
+const { env } = require('process');
 
 const publicdirectoryPath=path.join(__dirname,'../public');
 const viewpath=path.join(__dirname,'../templates/views');
 const partialspath=path.join(__dirname,'../templates/partials');
 
 const app=express();
+const port=process.env.PORT||3000;
 
 //Setting up the view engine and path
 app.set('view engine','hbs');
@@ -80,7 +82,7 @@ app.get('*',(req,res)=>{
     res.send("Wep Page not found (error 404)");
 })
 
-app.listen(3000,()=>{
+app.listen(port,()=>{
     console.log('Server is up and running');
 })
 
